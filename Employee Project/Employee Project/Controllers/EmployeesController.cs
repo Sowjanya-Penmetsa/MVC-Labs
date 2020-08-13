@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
+﻿using Employee_Project.Models;
+using Employee_Project.ViewModels;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
-using Employee_Project.Models;
-using Employee_Project.ViewModels;
 
 namespace Employee_Project.Controllers
 {
@@ -41,8 +37,9 @@ namespace Employee_Project.Controllers
         {
             EmployeesViewModel viewModel = new EmployeesViewModel();
             viewModel.employee = new Employee();
-            viewModel.employeeDepartments = employeeDepartments();
+            viewModel.employeeDepartments=db.EmployeeDepartments.ToList();
             return View(viewModel);
+            
             
         }
 
@@ -70,12 +67,26 @@ namespace Employee_Project.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+            
             Employee employee = db.Employees.Find(id);
             if (employee == null)
             {
-                return HttpNotFound();
+                
+             return HttpNotFound();
+                    
             }
-            return View(employee);
+            else
+            {
+                EmployeesViewModel viewModel = new EmployeesViewModel();
+                viewModel.employee = employee;
+                viewModel.employeeDepartments = db.EmployeeDepartments.ToList();
+                return View(viewModel);
+            }
+                
+            //
+            //
+            //
+            //return View(employee);
         }
 
         // POST: Employees/Edit/5

@@ -46,7 +46,7 @@ namespace Employee_Project.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "DeptId,Department")] EmployeeDepartment employeeDepartment)
+        public ActionResult Create([Bind(Include = "Department")] EmployeeDepartment employeeDepartment)
         {
             if (ModelState.IsValid)
             {
