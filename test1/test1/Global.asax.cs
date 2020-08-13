@@ -14,7 +14,7 @@ namespace test1
     {
         protected void Application_Start()
         {
-            Database.SetInitializer(new StudentContextSeeder());
+            //Database.SetInitializer(new StudentContext());
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
