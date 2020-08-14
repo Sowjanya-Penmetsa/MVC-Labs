@@ -1,0 +1,44 @@
+﻿@model Employee_Project.Models.Employee
+
+@{
+    ViewBag.Title = Model.Name + "Details";
+}
+
+<h2>@Html.DisplayFor(model => model.Name)</h2>
+<div>
+    <div class="col-md-2">
+        <img class="img-responsive" src="~/Content/ProductImages/@Model.Image" />
+    </div>
+    <div class="col-md-10">
+        <dl>
+            <dt>
+                @Html.DisplayNameFor(model => model.Address)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Address)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Department)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Department)
+            </dd>
+            <br />
+            <br />
+            @Html.ActionLink("Back to List", "Index")
+        </dl>
+    </div>
+</div>
+<div class="col.md-12 clearfix"></div>
+
+
+
+
+
+
+
+
+   
