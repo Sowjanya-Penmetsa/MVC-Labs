@@ -15,6 +15,7 @@ namespace Employee_Project.Controllers
         private EmployeeContext db = new EmployeeContext();
 
         // GET: EmployeeDepartments
+        //testing
         public ActionResult Index()
         {
             return View(db.EmployeeDepartments.ToList());
